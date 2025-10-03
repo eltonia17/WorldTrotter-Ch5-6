@@ -15,52 +15,8 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="735"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="212" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9r-8D-cSh">
-                                <rect key="frame" x="141" y="126" width="111" height="84"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                <color key="textColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HT-i3-nG7">
-                                <rect key="frame" x="138" y="320" width="117" height="84"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                <color key="textColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDH-wP-US1">
-                                <rect key="frame" x="49" y="218" width="295" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkK-BP-wNZ">
-                                <rect key="frame" x="139.66666666666666" y="269" width="114" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYl-6f-FLv">
-                                <rect key="frame" x="73.666666666666686" y="412" width="246" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.95686274509803915" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="NDH-wP-US1" firstAttribute="centerX" secondItem="q9r-8D-cSh" secondAttribute="centerX" id="2TB-ml-Pz6"/>
-                            <constraint firstItem="eYl-6f-FLv" firstAttribute="top" secondItem="5HT-i3-nG7" secondAttribute="bottom" constant="8" id="9vo-WE-DN8"/>
-                            <constraint firstItem="eYl-6f-FLv" firstAttribute="centerX" secondItem="q9r-8D-cSh" secondAttribute="centerX" id="DcL-KR-nGD"/>
-                            <constraint firstItem="GkK-BP-wNZ" firstAttribute="centerX" secondItem="q9r-8D-cSh" secondAttribute="centerX" id="QT6-dx-4MH"/>
-                            <constraint firstItem="q9r-8D-cSh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="T2p-lQ-iPP"/>
-                            <constraint firstItem="5HT-i3-nG7" firstAttribute="top" secondItem="GkK-BP-wNZ" secondAttribute="bottom" constant="8" id="fH1-Dg-IgB"/>
-                            <constraint firstItem="5HT-i3-nG7" firstAttribute="centerX" secondItem="q9r-8D-cSh" secondAttribute="centerX" id="ixj-cv-Snj"/>
-                            <constraint firstItem="GkK-BP-wNZ" firstAttribute="top" secondItem="NDH-wP-US1" secondAttribute="bottom" constant="8" id="n5h-84-c4W"/>
-                            <constraint firstItem="q9r-8D-cSh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ulW-oF-gCu"/>
-                            <constraint firstItem="NDH-wP-US1" firstAttribute="top" secondItem="q9r-8D-cSh" secondAttribute="bottom" constant="8" id="ziQ-hJ-4uT"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Convert" image="thermometer.high" catalog="system" id="NjP-P5-O43"/>
                 </viewController>

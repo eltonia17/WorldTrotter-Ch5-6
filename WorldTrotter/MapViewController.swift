@@ -46,6 +46,32 @@ class MapViewController: UIViewController {
         topConstraint.isActive = true
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
+        
+        // Points of Interest (label and switch)
+        let poiLabel = UILabel()
+        poiLabel.text = "Points of Interest"
+        poiLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        let poiSwitch = UISwitch()
+        poiSwitch.isOn = true                           // default ON
+        poiSwitch.translatesAutoresizingMaskIntoConstraints = false
+        poiSwitch.addTarget(self, action: #selector(togglePOI(_:)), for: .valueChanged)
+
+        // add to view
+        view.addSubview(poiLabel)
+        view.addSubview(poiSwitch)
+
+        // layout under the segmented control (uses safe area margins)
+        NSLayoutConstraint.activate([
+            poiLabel.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 12),
+            poiLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+
+            poiSwitch.centerYAnchor.constraint(equalTo: poiLabel.centerYAnchor),
+            poiSwitch.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
+        ])
+
+        // initial state
+        mapView.pointOfInterestFilter = .includingAll
     }
 
     override func viewDidLoad() {
@@ -68,4 +94,8 @@ class MapViewController: UIViewController {
         }
     }
 
+    // toggle Points of Interests on/off
+    @objc private func togglePOI(_ sender: UISwitch) {
+        mapView.pointOfInterestFilter = sender.isOn ? .includingAll : .excludingAll
+    }
 }

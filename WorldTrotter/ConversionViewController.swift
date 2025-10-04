@@ -49,20 +49,33 @@ final class ConversionViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //Bronze challenge add on
+    // Disallow letters (allow only digits + one decimal separator)
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
 
-        let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
-            let replacementTextHasDecimalSeparator = string.range(of: ".")
+        // allow backspace
+        if string.isEmpty { return true }
 
-            if existingTextHasDecimalSeparator != nil,
-                replacementTextHasDecimalSeparator != nil {
-                return false
-            } else {
-                return true
-            }
+        // block any alphabetic characters (covers the keyboard + pasting)
+        if string.rangeOfCharacter(from: .letters) != nil { return false }
+
+        // only digits and the locale decimal separator
+        let dec = Locale.current.decimalSeparator ?? "."
+        let allowed = CharacterSet.decimalDigits.union(CharacterSet(charactersIn: dec))
+        if string.rangeOfCharacter(from: allowed.inverted) != nil { return false }
+
+        let current = textField.text ?? ""
+        guard let r = Range(range, in: current) else { return false }
+        let updated = current.replacingCharacters(in: r, with: string)
+
+        // at most one decimal separator in the whole string
+        if updated.components(separatedBy: dec).count - 1 > 1 { return false }
+
+        return true
     }
+
     
     @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
         // Set Celsius text field

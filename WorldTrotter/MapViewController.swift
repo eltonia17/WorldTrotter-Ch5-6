@@ -7,8 +7,14 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController {
+final class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+    
+    // location manager and one time zoom flag
+    private let locationManager = CLLocationManager()
+    private var hasZoomedToUser = false
+
 
     var mapView: MKMapView!
 
@@ -18,6 +24,12 @@ class MapViewController: UIViewController {
 
         // Set it as *the* view of this view controller
         view = mapView
+        
+        // show the blue dot
+        mapView.showsUserLocation = true
+        
+        // receive user location updates
+        mapView.delegate = self
         
         //Segmented controls
         let segmentedControl
@@ -98,4 +110,33 @@ class MapViewController: UIViewController {
     @objc private func togglePOI(_ sender: UISwitch) {
         mapView.pointOfInterestFilter = sender.isOn ? .includingAll : .excludingAll
     }
+    
+    // MKMapViewDelegate (called when blue dot location updates)
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        guard !hasZoomedToUser, CLLocationCoordinate2DIsValid(userLocation.coordinate) else { return }
+
+        let region = MKCoordinateRegion(center: userLocation.coordinate,
+                                        latitudinalMeters: 2000,
+                                        longitudinalMeters: 2000)
+        mapView.setRegion(region, animated: true)
+        hasZoomedToUser = true
+    }
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locationManager.delegate = self
+        // if not decided yet, ask and if already allowed, we will get updates immediately
+        locationManager.requestWhenInUseAuthorization()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse, .authorizedAlways:
+            manager.startUpdatingLocation()
+        default:
+            break
+        }
+    }
+
 }

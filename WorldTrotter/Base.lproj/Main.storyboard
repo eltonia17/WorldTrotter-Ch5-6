@@ -52,6 +52,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.95686274509803915" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="4l1-Rb-jw1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F5n-aV-ZWV"/>
                             <constraint firstItem="4l1-Rb-jw1" firstAttribute="top" secondItem="6S8-ux-gBb" secondAttribute="bottom" constant="8" id="FBi-Gg-RvN"/>
@@ -68,13 +69,22 @@
                             <constraint firstItem="A2q-83-Eao" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qg3-d7-rWs"/>
                             <constraint firstItem="6S8-ux-gBb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tsi-Bf-KLp"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="oj2-bI-aXg" appends="YES" id="9cD-1X-5gq"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Convert" image="thermometer.high" catalog="system" id="NjP-P5-O43"/>
                     <connections>
                         <outlet property="celsiusLabel" destination="2cU-9j-6Vb" id="wB2-Wp-oT4"/>
+                        <outlet property="textField" destination="6S8-ux-gBb" id="yo3-Cr-vyZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="oj2-bI-aXg">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="IZ2-FG-eJF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="101.5267175572519" y="3.5211267605633805"/>
         </scene>
